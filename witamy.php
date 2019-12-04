@@ -2,10 +2,14 @@
 
 session_start();
 
-if ((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true)) {
-    header('Location: konto.php');
+if ((!isset($_SESSION['udanarejestracja']))) {
+    header('Location: index.php');
     exit();
 }
+else {
+    unset($_SESSION['udanarejestracja']);
+}
+
 
 ?>
 
@@ -17,14 +21,14 @@ if ((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="main.css">
-    <title>Strona główna</title>
+    <title>Udana rejestracja</title>
 </head>
 
 <body>
 
-    
+    Dziękujemy za rejestrację w serwisie! Możesz już zalogować się na swoje konto!<br><br>
 
-    <a href="rejestracja.php">Rejestracja - załóż darmowe konto!</a>
+    <a href="index.php">Załóż nowe konto</a>
     <br><br>
 
     <form action="zaloguj.php" method="post">
